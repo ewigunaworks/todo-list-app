@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "63ece6f4-a44a-4429-be14-a945388102fa",
+		"name": "Todo List App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3108306"
+	},
+	"item": [
+		{
+			"name": "Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Test\",\r\n    \"Description\":\"Desc\",\r\n    \"DueDate\": \"2024-08-22\",\r\n    \"Status\": 1 //0: waiting list, 1: in progress, 2: done\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/v1/todo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"todo",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Create Todo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Test\",\r\n    \"Description\":\"Desc\",\r\n    \"DueDate\": \"2024-08-16 06:30:30\",\r\n    \"Status\": 0 //0: waiting list, 1: in progress, 2: done\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 00:56:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"success\",\n    \"StatusCode\": 200,\n    \"Message\": \"Success Create Todo List\",\n    \"Data\": {\n        \"id\": 2,\n        \"title\": \"Test\",\n        \"description\": \"Desc\",\n        \"status\": \"Waiting List\",\n        \"dueDate\": \"2024-08-16 06:30:30\",\n        \"createdAt\": \"2024-08-18 07:56:55\",\n        \"updatedAt\": \"\",\n        \"deletedAt\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Test 1 upd\",\r\n    \"Description\":\"Desc upd\",\r\n    \"DueDate\": \"2024-08-16\",\r\n    \"Status\": 1 //0: waiting list, 1: in progress, 2: done\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/v1/todo/update/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"todo",
+						"update",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Update Todo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Test 1 upd\",\r\n    \"Description\":\"Desc upd\",\r\n    \"DueDate\": \"2024-08-16 06:52:30\",\r\n    \"Status\": 1 //0: waiting list, 1: in progress, 2: done\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 00:58:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "275"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"success\",\n    \"StatusCode\": 200,\n    \"Message\": \"Success Update Todo List\",\n    \"Data\": {\n        \"id\": 1,\n        \"title\": \"Test 1 upd\",\n        \"description\": \"Desc upd\",\n        \"status\": \"In Progress\",\n        \"dueDate\": \"2024-08-16 13:52:30\",\n        \"createdAt\": \"2024-08-18 07:54:44\",\n        \"updatedAt\": \"2024-08-18 07:58:06\",\n        \"deletedAt\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/v1/todo/delete/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"todo",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "99999"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Delete Todo",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/delete/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 00:58:30 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"success\",\n    \"StatusCode\": 200,\n    \"Message\": \"Success Delete Todo List\",\n    \"Data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Detail Todo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/v1/todo/detail/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"todo",
+						"detail",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Delete Todo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/detail/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 00:25:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "253"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"success\",\n    \"StatusCode\": 200,\n    \"Message\": \"Success Get Detail Todo List\",\n    \"Data\": {\n        \"id\": 1,\n        \"title\": \"Test 1\",\n        \"description\": \"Desc\",\n        \"status\": \"Waiting List\",\n        \"dueDate\": \"2024-08-16 13:30:13\",\n        \"createdAt\": \"2024-08-18 07:52:07\",\n        \"updatedAt\": \"\",\n        \"deletedAt\": \"\"\n    }\n}"
+				},
+				{
+					"name": "Failed Delete Todo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/detail/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "999999"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 00:25:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"failed\",\n    \"StatusCode\": 400,\n    \"Message\": \"Failed Get Detail Todo List record not found\",\n    \"Data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "List Todo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/v1/todo/list?Page=1&Limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"todo",
+						"list"
+					],
+					"query": [
+						{
+							"key": "Search",
+							"value": "",
+							"description": "title, due_date, created_at",
+							"disabled": true
+						},
+						{
+							"key": "FilterField",
+							"value": "Status",
+							"description": "Title, Status, Description, DueDate, CreatedAt",
+							"disabled": true
+						},
+						{
+							"key": "FilterValue",
+							"value": "in progress",
+							"disabled": true
+						},
+						{
+							"key": "Page",
+							"value": "1"
+						},
+						{
+							"key": "Limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success List Todo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/api/v1/todo/list?Page=1&Limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"v1",
+								"todo",
+								"list"
+							],
+							"query": [
+								{
+									"key": "Search",
+									"value": "",
+									"description": "title, due_date, created_at",
+									"disabled": true
+								},
+								{
+									"key": "FilterField",
+									"value": "Status",
+									"description": "Title, Status, Description, DueDate, CreatedAt",
+									"disabled": true
+								},
+								{
+									"key": "FilterValue",
+									"value": "in progress",
+									"disabled": true
+								},
+								{
+									"key": "Page",
+									"value": "1"
+								},
+								{
+									"key": "Limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2024 01:29:07 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "840"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": \"success\",\n    \"StatusCode\": 200,\n    \"Message\": \"Success Get List Todo List\",\n    \"Data\": [\n        {\n            \"id\": 4,\n            \"title\": \"Test\",\n            \"description\": \"Desc\",\n            \"status\": \"In Progress\",\n            \"dueDate\": \"2024-08-22\",\n            \"createdAt\": \"2024-08-18 08:22:14\",\n            \"updatedAt\": \"\",\n            \"deletedAt\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Test\",\n            \"description\": \"Desc\",\n            \"status\": \"Waiting List\",\n            \"dueDate\": \"2024-08-22\",\n            \"createdAt\": \"2024-08-18 08:16:27\",\n            \"updatedAt\": \"\",\n            \"deletedAt\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Test 1 upd\",\n            \"description\": \"Desc upd\",\n            \"status\": \"In Progress\",\n            \"dueDate\": \"2024-08-16\",\n            \"createdAt\": \"2024-08-18 08:16:21\",\n            \"updatedAt\": \"2024-08-18 08:20:58\",\n            \"deletedAt\": \"\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"Test 1 upd\",\n            \"description\": \"Desc upd\",\n            \"status\": \"Done\",\n            \"dueDate\": \"2024-08-16\",\n            \"createdAt\": \"2024-08-18 08:16:16\",\n            \"updatedAt\": \"2024-08-18 08:20:51\",\n            \"deletedAt\": \"\"\n        }\n    ],\n    \"Paginate\": {\n        \"CurrentPage\": 1,\n        \"NextPage\": 2,\n        \"TotalPage\": 1,\n        \"PerPage\": 10,\n        \"TotalRow\": 4\n    }\n}"
+				}
+			]
+		}
+	]
+}
